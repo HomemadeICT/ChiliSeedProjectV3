@@ -1,23 +1,236 @@
+/* Cart Styles */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
 /* Navbar Styles */
 nav {
-    background-color: #126945;
-    padding: 15px 0;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    justify-content: flex-end;
+  background-color: #126945;
+  padding: 15px 0;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: inline-block;
 }
 
 nav a:hover {
-    text-decoration: underline;
-    text-decoration-color: #c2d973;
-    text-decoration-thickness: 2px;
+  text-decoration: underline;
+}
+
+/* Cart Container */
+.cart-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.cart-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #126945;
+}
+
+/* Cart Items */
+.cart-items {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.item-weight {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.item-price {
+  font-weight: bold;
+  color: #e60000;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-btn {
+  background: none;
+  border: 1px solid #126945;
+  color: #126945;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btn:hover {
+  background-color: #126945;
+  color: white;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #e60000;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.remove-btn:hover {
+  color: #cc0000;
+}
+
+/* Cart Summary */
+.cart-summary {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 5px 0;
+}
+
+.total {
+  font-size: 1.2em;
+  font-weight: bold;
+  border-top: 2px solid #eee;
+  padding-top: 15px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.checkout-btn:hover {
+  background-color: #128c7e;
+}
+
+.checkout-btn i {
+  font-size: 1.2em;
+}
+
+/* WhatsApp Chat Button */
+.whatsapp-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.whatsapp-chat:hover {
+  transform: scale(1.05);
+}
+
+/* Empty Cart Message */
+.empty-cart {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+}
+
+.empty-cart i {
+  font-size: 3em;
+  color: #126945;
+  margin-bottom: 20px;
+}
+
+.empty-cart h2 {
+  color: #126945;
+  margin-bottom: 15px;
+}
+
+.empty-cart .checkout-btn {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 10px 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-item img {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .quantity-controls {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .remove-btn {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }

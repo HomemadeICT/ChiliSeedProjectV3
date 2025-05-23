@@ -18,7 +18,6 @@
       <a href="products.html">Products</a>
       <a href="../index.html#contact">Contact-Us</a>
       <a href="../cart/cart.html">🛒 Cart</a>
-      <a href="../admin-dashboard/dashboard.html">👤 Admin</a>
     </nav>
 
     <!-- Product Details Section -->
@@ -133,6 +132,85 @@
       <i class="fab fa-whatsapp"></i>
       <span>Chat with us!</span>
     </a>
+
+    <!-- Delivery Details Modal -->
+    <div id="deliveryModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Delivery Details</h2>
+        <form id="deliveryForm">
+          <div class="form-group">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" required />
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              pattern="[0-9]{10}"
+              placeholder="07XXXXXXXX"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="address">Delivery Address:</label>
+            <textarea id="address" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" required />
+          </div>
+          <div class="form-group">
+            <label for="district">District:</label>
+            <select id="district" required>
+              <option value="">Select District</option>
+              <option value="Colombo">Colombo</option>
+              <option value="Gampaha">Gampaha</option>
+              <option value="Kalutara">Kalutara</option>
+              <option value="Kandy">Kandy</option>
+              <option value="Matale">Matale</option>
+              <option value="Nuwara Eliya">Nuwara Eliya</option>
+              <option value="Galle">Galle</option>
+              <option value="Matara">Matara</option>
+              <option value="Hambantota">Hambantota</option>
+              <option value="Jaffna">Jaffna</option>
+              <option value="Kilinochchi">Kilinochchi</option>
+              <option value="Mannar">Mannar</option>
+              <option value="Vavuniya">Vavuniya</option>
+              <option value="Mullaitivu">Mullaitivu</option>
+              <option value="Batticaloa">Batticaloa</option>
+              <option value="Ampara">Ampara</option>
+              <option value="Trincomalee">Trincomalee</option>
+              <option value="Kurunegala">Kurunegala</option>
+              <option value="Puttalam">Puttalam</option>
+              <option value="Anuradhapura">Anuradhapura</option>
+              <option value="Polonnaruwa">Polonnaruwa</option>
+              <option value="Badulla">Badulla</option>
+              <option value="Monaragala">Monaragala</option>
+              <option value="Ratnapura">Ratnapura</option>
+              <option value="Kegalle">Kegalle</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notes">Special Notes (Optional):</label>
+            <textarea id="notes" rows="2"></textarea>
+          </div>
+          <div class="form-buttons">
+            <button type="submit" class="submit-btn" data-source="buy-now">
+              <i class="fab fa-whatsapp"></i> Place Order Now
+            </button>
+            <button
+              type="submit"
+              class="submit-btn add-cart-btn"
+              data-source="add-to-cart"
+            >
+              <i class="fas fa-cart-plus"></i> Add to Cart & Continue Shopping
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script>
       // Image Gallery

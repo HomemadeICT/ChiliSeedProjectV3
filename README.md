@@ -14,21 +14,10 @@ Welcome to **Max Mark Ceylon Agro**—your trusted source for high-quality chili
 
 ```
 CHILISEEDPROJECT V2/
-├── firebase.json
-├── .firebaserc
-├── /public
-│   ├── index.html
-│   ├── styles.css
-│   ├── script.js
-│   ├── /auth
-│   │   ├── login.html
-│   │   ├── login.css
-│   │   ├── auth.js
-│   ├── /admin-dashboard
-│   │   ├── dashboard.html
-│   │   ├── dashboard.css
-│   │   ├── dashboard.js
-│   ├── /components
+├── index.html
+├── styles.css
+├── script.js
+├── /components
 │   │   ├── maxmarkceylon_withImage Of Packet.jpg
 │   │   ├── maxmarkceylon_Seeds_with_Metal_ruler.jpg
 │   │   ├── maxmarkceylon_Seeds_with_electronicbalanc.jpg
@@ -65,8 +54,8 @@ CHILISEEDPROJECT V2/
 │       ├── auth-guard.js
 │   ├── /readmefiles
 │   │   ├── navbar.readme.md
-│   │   ├── 
-│   │   ├── 
+│   │   ├──
+│   │   ├──
 ├── README.md
 ```
 
@@ -88,18 +77,16 @@ The website utilizes the following color scheme to reflect the brand's identity:
 - **Responsive Design:** Ensures optimal viewing experience across devices.
 - **Product Showcase:** Highlights various chili seed varieties with images and descriptions.
 - **Shopping Cart:** Allows users to add products and proceed to checkout.
-- **Authentication:** User login functionality for secure access via firebase authentication.
-- **Contact ** Enables users to get in touch directly from the website (whatsapp chat).
-- **Admin Dashboard:** .
+- **Contact** Enables users to get in touch directly from the website (WhatsApp chat)
 
 ---
 
 ## 🛠️ Technologies Used
 
 - **Frontend:** HTML5, CSS3, JavaScript
-- **Backend:** Firebase (Authentication, Hosting)
 - **Version Control:** Git
-- **Deployment:** Firebase Hosting
+- **Features:** Local Storage for Cart, WhatsApp Integration
+- **Deployment:** Static Web Hosting
 
 ---
 
@@ -131,4 +118,3 @@ This project is licensed under the [MIT License](LICENSE).
 - Special thanks to the open-source community for tools and resource.
 
 ---
-

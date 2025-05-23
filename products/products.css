@@ -1,387 +1,336 @@
 /* products.css */
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 /* Navbar Styles */
 nav {
-    background-color: #126945;
-    padding: 15px 0;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    justify-content: flex-end;
+  background-color: #126945;
+  padding: 15px 0;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: inline-block;
 }
 
 nav a:hover {
-    text-decoration: underline;
-    text-decoration-color: #c2d973;
-    text-decoration-thickness: 2px;
+  text-decoration: underline;
+  text-decoration-color: #c2d973;
+  text-decoration-thickness: 2px;
 }
 
 .product-details {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  gap: 40px;
 }
 
 .product-gallery {
-    flex: 1;
-    min-width: 300px;
+  flex: 1;
+  min-width: 300px;
 }
 
 .main-image img {
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
 
 .thumbnails {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .thumbnails img {
-    width: 23%;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    transition: border 0.3s;
+  width: 23%;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: border 0.3s;
 }
 
 .thumbnails img:hover {
-    border-color: #228b22;
+  border-color: #228b22;
 }
 
 .product-info {
-    flex: 1;
-    min-width: 300px;
+  flex: 1;
+  min-width: 300px;
 }
 
 h1 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
 .pricing {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .current-price {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #e60000;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #e60000;
 }
 
 .original-price {
-    text-decoration: line-through;
-    color: gray;
+  text-decoration: line-through;
+  color: gray;
 }
 
 .discount {
-    color: green;
-    font-weight: bold;
+  color: green;
+  font-weight: bold;
 }
 
 .installment {
-    font-size: 0.9rem;
-    color: #555;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 .weight-selection {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .weight-options .weight-btn {
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    background-color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-.weight-btn.active, .weight-btn:hover {
-    background-color: #228b22;
-    color: white;
-    border-color: #228b22;
-}
-
-.purchase-options button {
-    padding: 12px 24px;
-    margin: 10px 10px 10px 0;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.add-to-cart-btn {
-    background-color: #e60000;
-    color: white;
-}
-
-.buy-now-btn {
-    background-color: #228b22;
-    color: white;
-}
-
-.delivery-note {
-    font-size: 0.95rem;
-    margin-top: 10px;
-}
-
-.product-details-tabs {
-    margin-top: 30px;
-}
-
-.tab-headers {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.tab-btn {
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    background-color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.tab-btn.active {
-    background-color: #228b22;
-    color: white;
-    border-color: #228b22;
-}
-
-.tab-content {
-    display: none;
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.whatsapp-chat {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    background-color: #25d366;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: background-color 0.3s;
-}
-
-.whatsapp-chat:hover {
-    background-color: #1ebe57;
-}
-
-.whatsapp-icon {
-    margin-right: 10px;
-}
-
-.product-details {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    gap: 40px;
-}
-
-.product-gallery {
-    flex: 1;
-    min-width: 300px;
-}
-
-.main-image img {
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
-
-.thumbnails {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.thumbnails img {
-    width: 23%;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    transition: border 0.3s;
-}
-
-.thumbnails img:hover {
-    border-color: #228b22;
-}
-
-.product-info {
-    flex: 1;
-    min-width: 300px;
-}
-
-h1 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-.pricing {
-    margin-bottom: 20px;
-}
-
-.current-price {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #e60000;
-}
-
-.original-price {
-    text-decoration: line-through;
-    color: gray;
-}
-
-.discount {
-    color: green;
-    font-weight: bold;
-}
-
-.installment {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.weight-selection {
-    margin: 20px 0;
-}
-
-.weight-options .weight-btn {
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    background-color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.weight-btn.active, .weight-btn:hover {
-    background-color: #228b22;
-    color: white;
-    border-color: #228b22;
+.weight-btn.active,
+.weight-btn:hover {
+  background-color: #228b22;
+  color: white;
+  border-color: #228b22;
 }
 
 .purchase-options button {
-    padding: 12px 24px;
-    margin: 10px 10px 10px 0;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s;
+  padding: 12px 24px;
+  margin: 10px 10px 10px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s;
 }
 
 .add-to-cart-btn {
-    background-color: #e60000;
-    color: white;
+  background-color: #e60000;
+  color: white;
 }
 
 .buy-now-btn {
-    background-color: #228b22;
-    color: white;
+  background-color: #228b22;
+  color: white;
 }
 
 .delivery-note {
-    font-size: 0.95rem;
-    margin-top: 10px;
+  font-size: 0.95rem;
+  margin-top: 10px;
 }
 
 .product-details-tabs {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .tab-headers {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .tab-btn {
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    background-color: white;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .tab-btn.active {
-    background-color: #228b22;
-    color: white;
-    border-color: #228b22;
+  background-color: #228b22;
+  color: white;
+  border-color: #228b22;
 }
 
 .tab-content {
-    display: none;
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+  display: none;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .tab-content.active {
-    display: block;
+  display: block;
 }
 
 .whatsapp-chat {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    background-color: #25d366;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: background-color 0.3s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #25d366;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
 .whatsapp-chat:hover {
-    background-color: #1ebe57;
+  background-color: #1ebe57;
 }
 
 .whatsapp-icon {
-    margin-right: 10px;
+  margin-right: 10px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: white;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: #25d366;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #128c7e;
+}
+
+/* Form Buttons */
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:first-child {
+  background-color: #25d366;
+  color: white;
+}
+
+.submit-btn:first-child:hover {
+  background-color: #128c7e;
+}
+
+.submit-btn.add-cart-btn {
+  background-color: #126945;
+  color: white;
+}
+
+.submit-btn.add-cart-btn:hover {
+  background-color: #0d4b31;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 10px;
+    width: auto;
+  }
 }

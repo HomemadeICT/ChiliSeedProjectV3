@@ -23,70 +23,64 @@ The navigation bar includes the following links, each directing users to their r
 - **Products**
 - **Contact**
 - **🛒 Cart**
-- **👤 Admin**
 
 > **Note:** Ensure that the links correspond to the actual paths in your project.
 
 ---
 
-
 ## Navbar Style Guidelines (Non-Coded)
+
 🎨 Color Palette
-    • Top Bar Background: Dark green (#0d4b31)
-    • Main Navbar Background: Medium/dark green (#126945)
-    • Active Menu Item Highlight: Light yellow-green underline (#c2d973)
-    • Text Color: Pure white for menu items and icons
-    • Cart Badge: Light yellow-green background with black text for the item count
+• Top Bar Background: Dark green (#0d4b31)
+• Main Navbar Background: Medium/dark green (#126945)
+• Active Menu Item Highlight: Light yellow-green underline (#c2d973)
+• Text Color: Pure white for menu items and icons
+• Cart Badge: Light yellow-green background with black text for the item count
 📐 Layout
-    • Structure:
-        ○ Left: Text-based brand name (if you decide to keep it there, or just leave it empty)
-        ○ Right: Horizontal alignment of menu items in this order: Home | About Us | Products | Contact | Cart | Admin
-    • Spacing:
-        ○ Equal padding (15–20px) between each menu item
-        ○ Vertical padding for the navbar: 15px top and bottom
-    • Icons (Cart & Admin):
-        ○ Inline with menu text items
-        ○ Icons sized 18–20px, aligned vertically centered with the text
+• Structure:
+○ Left: Text-based brand name (if you decide to keep it there, or just leave it empty)
+○ Right: Horizontal alignment of menu items in this order: Home | About Us | Products | Contact | Cart | Admin
+• Spacing:
+○ Equal padding (15–20px) between each menu item
+○ Vertical padding for the navbar: 15px top and bottom
+• Icons (Cart & Admin):
+○ Inline with menu text items
+○ Icons sized 18–20px, aligned vertically centered with the text
 
 🔤 Typography
-    • Font: Clean sans-serif (like Open Sans, Roboto, or system UI)
-    • Font Size:
-        ○ Regular menu items: Medium (16–18px)
-        ○ Cart count: Smaller (12px)
-    • Font Weight: Bold for menu items, normal for other text
+• Font: Clean sans-serif (like Open Sans, Roboto, or system UI)
+• Font Size:
+○ Regular menu items: Medium (16–18px)
+○ Cart count: Smaller (12px)
+• Font Weight: Bold for menu items, normal for other text
 
 ✏️ Effects & Details
-    • Active Menu Item:
-        ○ Thin underline directly beneath the text in a light yellow-green color
-    • Cart Icon:
-        ○ Positioned on the far right
-        ○ Circular badge showing the number of items, overlapping top-right of the cart icon
-    • Hover Effects:
-        ○ Slight color change (lighter or underline) on hover for menu items
-        ○ Cursor changes to pointer
+• Active Menu Item:
+○ Thin underline directly beneath the text in a light yellow-green color
+• Cart Icon:
+○ Positioned on the far right
+○ Circular badge showing the number of items, overlapping top-right of the cart icon
+• Hover Effects:
+○ Slight color change (lighter or underline) on hover for menu items
+○ Cursor changes to pointer
 
 📱 Responsiveness
-    • Mobile Behavior:
-        ○ Collapse menu items into a hamburger menu icon (☰) on smaller screens
-        ○ Cart icon remains visible
-        ○ Top contact and social icons could stack or hide based on space
+• Mobile Behavior:
+○ Collapse menu items into a hamburger menu icon (☰) on smaller screens
+○ Cart icon remains visible
+○ Top contact and social icons could stack or hide based on space
 
 📝 Optional Add-ons
-    • Sticky Navbar: Stays fixed at the top when scrolling
-    • Smooth Scroll / Scroll Highlight: Smoothly scrolls to sections and highlights active nav link
+• Sticky Navbar: Stays fixed at the top when scrolling
+• Smooth Scroll / Scroll Highlight: Smoothly scrolls to sections and highlights active nav link
 
 ✅ Summary:
 Keep it clean, modern, and consistent with:
-    • Two-tone green background
-    • Bold, white sans-serif text
-    • Simple underline indicator for the active page
-    • Minimal but functional icons (social, cart, phone)
-    • Responsiveness for mobile screens
-
-
-
-
-
+• Two-tone green background
+• Bold, white sans-serif text
+• Simple underline indicator for the active page
+• Minimal but functional icons (social, cart, phone)
+• Responsiveness for mobile screens
 
 ---
 
@@ -110,7 +104,7 @@ To tailor the navigation bar to your specific needs:
 
 Thanks for the clarification! Here's the updated **Integration** section for your non-SPA project:
 
-```markdown
+````markdown
 ## 🧩 Integration
 
 To integrate the navigation bar into your web pages, follow these steps:
@@ -121,14 +115,15 @@ To integrate the navigation bar into your web pages, follow these steps:
    ```html
    <!-- Navbar Section -->
    <nav>
-       <a href="#home">Home</a>
-       <a href="#about">About Us</a>
-       <a href="#products">Products</a>
-       <a href="#contact">Contact</a>
-       <a href="#cart">🛒 Cart</a>
-       <a href="#admin">👤 Admin</a>
+     <a href="#home">Home</a>
+     <a href="#about">About Us</a>
+     <a href="#products">Products</a>
+     <a href="#contact">Contact</a>
+     <a href="#cart">🛒 Cart</a>
+     <a href="#admin">👤 Admin</a>
    </nav>
    ```
+````
 
 2. **Link Styles and Scripts:**  
    Ensure that the styles and scripts related to the navbar are linked correctly in your HTML files. Since your project uses the `public/` folder, you can link the CSS and JavaScript files as follows:
@@ -137,7 +132,7 @@ To integrate the navigation bar into your web pages, follow these steps:
 
    ```html
    <!-- Link to CSS file -->
-   <link rel="stylesheet" href="public/styles.css">
+   <link rel="stylesheet" href="public/styles.css" />
    ```
 
    Then, add the following before the closing `</body>` tag for JavaScript:
@@ -151,14 +146,14 @@ To integrate the navigation bar into your web pages, follow these steps:
 
    ```html
    <!-- Link to Navbar CSS -->
-   <link rel="stylesheet" href="components/navbar/navbar.css">
+   <link rel="stylesheet" href="components/navbar/navbar.css" />
 
    <!-- Link to Navbar JS -->
    <script src="components/navbar/navbar.js" defer></script>
    ```
 
 3. **Use in Other Pages:**  
-   To integrate the navbar into other pages (e.g., `auth/login.html`, `products/products.html`, `cart/cart.html`, etc.), simply copy the `<nav>` section and include the relevant links to the `styles.css` and `script.js` in the same way as described above. 
+   To integrate the navbar into other pages (e.g., `auth/login.html`, `products/products.html`, `cart/cart.html`, etc.), simply copy the `<nav>` section and include the relevant links to the `styles.css` and `script.js` in the same way as described above.
 
    Ensure the file paths to the CSS and JS files are correct relative to the structure of each page.
 
@@ -172,3 +167,4 @@ To integrate the navigation bar into your web pages, follow these steps:
 3. **Use in Other Pages:** The navbar can be manually included in other pages by copying the HTML and ensuring proper linking of styles and scripts.
 
 This setup will work for your traditional multi-page website, where each page includes the necessary CSS and JavaScript.
+```
