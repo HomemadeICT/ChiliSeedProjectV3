@@ -24,9 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Product pricing
 const pricesByWeight = {
-  "25g": 280.0,
-  "50g": 520.0,
-  "100g": 950.0,
+  "5g": 920.0,
+  "10g": 1750.0,
+  "20g": 3500.0,
+  "50g": 8750.0,
 };
 
 function updatePrice(weight) {
