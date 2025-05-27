@@ -4,19 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart - Max Mark Ceylon Agro</title>
-    <link rel="stylesheet" href="cart.css" />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
+    <!-- Custom CSS - Load last -->
+    <link rel="stylesheet" href="cart.css" />
   </head>
   <body>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../index.html#about">About Us</a>
-      <a href="../products/products.html">Products</a>
-      <a href="../index.html#contact">Contact-Us</a>
-      <a href="cart.html">🛒 Cart</a>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">Max Mark Ceylon</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../products/products.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html#contact">Contact-Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">🛒 Cart</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <main class="cart-container">
@@ -55,7 +96,8 @@
       <i class="fab fa-whatsapp"></i>
       <span>Chat with us!</span>
     </a>
-
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="cart.js"></script>
   </body>
 </html>

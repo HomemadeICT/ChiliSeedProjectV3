@@ -89,6 +89,11 @@ function removeItem(weight) {
 
 // WhatsApp Checkout
 document.getElementById("checkoutBtn").addEventListener("click", () => {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+
   let message = "🛍️ *New Order*%0A%0A";
   message += "*Order Details:*%0A";
   message += "----------------%0A%0A";
@@ -99,6 +104,7 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
     message += `• Weight: ${item.weight}%0A`;
     message += `• Quantity: ${item.quantity}%0A`;
     message += `• Price: Rs. ${item.price.toFixed(2)}%0A`;
+    message += `• Subtotal: Rs. ${itemTotal.toFixed(2)}%0A%0A`;
     message += `• Subtotal: Rs. ${itemTotal.toFixed(2)}%0A%0A`;
   });
 
