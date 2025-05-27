@@ -1,6 +1,9 @@
 // Initialize cart
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// Constants
+const DELIVERY_FEE = 350; // Default delivery fee
+
 // Update cart display
 function updateCartDisplay() {
   const cartItems = document.getElementById("cartItems");
@@ -18,8 +21,8 @@ function updateCartDisplay() {
             </div>
         `;
     subtotalEl.textContent = "Rs. 0.00";
-    shippingEl.textContent = "Rs. 0.00";
-    totalEl.textContent = "Rs. 0.00";
+    shippingEl.textContent = `Rs. ${DELIVERY_FEE.toFixed(2)}`;
+    totalEl.textContent = `Rs. ${DELIVERY_FEE.toFixed(2)}`;
     return;
   }
 
@@ -55,7 +58,7 @@ function updateCartDisplay() {
     })
     .join("");
 
-  const shipping = subtotal > 2000 ? 0 : 200;
+  const shipping = DELIVERY_FEE;
   const total = subtotal + shipping;
 
   subtotalEl.textContent = `Rs. ${subtotal.toFixed(2)}`;
@@ -86,25 +89,35 @@ function removeItem(weight) {
 
 // WhatsApp Checkout
 document.getElementById("checkoutBtn").addEventListener("click", () => {
-  let message = "Hi! I would like to order:%0A%0A";
+  let message = "🛍️ *New Order*%0A%0A";
+  message += "*Order Details:*%0A";
+  message += "----------------%0A%0A";
 
   cart.forEach((item) => {
-    message += `- ${item.quantity}x ${item.name} (${
-      item.weight
-    })%0A  Price: Rs. ${(item.price * item.quantity).toFixed(2)}%0A%0A`;
+    const itemTotal = item.price * item.quantity;
+    message += `*${item.name}*%0A`;
+    message += `• Weight: ${item.weight}%0A`;
+    message += `• Quantity: ${item.quantity}%0A`;
+    message += `• Price: Rs. ${item.price.toFixed(2)}%0A`;
+    message += `• Subtotal: Rs. ${itemTotal.toFixed(2)}%0A%0A`;
   });
 
   const subtotal = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-  const shipping = subtotal > 2000 ? 0 : 200;
+  const shipping = DELIVERY_FEE;
   const total = subtotal + shipping;
 
+  message += "*Order Summary*%0A";
+  message += "----------------%0A";
   message += `Subtotal: Rs. ${subtotal.toFixed(2)}%0A`;
-  message += `Shipping: Rs. ${shipping.toFixed(2)}%0A`;
-  message += `Total: Rs. ${total.toFixed(2)}%0A%0A`;
-  message += "Please process my order for Cash on Delivery.";
+  message += `Delivery Fee: Rs. ${shipping.toFixed(2)}%0A`;
+  message += `*Total Amount: Rs. ${total.toFixed(2)}*%0A%0A`;
+
+  message += "*Payment Method:* Cash on Delivery%0A";
+  message += "----------------%0A";
+  message += "Please process my order for Cash on Delivery. Thank you!";
 
   // Clear cart after order is placed
   localStorage.removeItem("cart");

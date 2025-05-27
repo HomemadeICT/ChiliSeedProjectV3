@@ -1,6 +1,17 @@
 // Cart functionality
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// Constants
+const DELIVERY_FEE = 350; // Default delivery fee
+
+// Product pricing
+const pricesByWeight = {
+  "5g": 920.0,
+  "10g": 1750.0,
+  "20g": 3500.0,
+  "50g": 8750.0,
+};
+
 // Update cart count in navbar
 function updateCartCount() {
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -22,14 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
 });
 
-// Product pricing
-const pricesByWeight = {
-  "5g": 920.0,
-  "10g": 1750.0,
-  "20g": 3500.0,
-  "50g": 8750.0,
-};
-
 function updatePrice(weight) {
   const price = pricesByWeight[weight];
   const currentPriceEl = document.querySelector(".current-price");
@@ -37,41 +40,9 @@ function updatePrice(weight) {
   const installmentEl = document.querySelector(".installment");
 
   currentPriceEl.textContent = `Rs. ${price.toFixed(2)}`;
-  originalPriceEl.textContent = `Rs. ${(price * 2).toFixed(2)}`;
+  originalPriceEl.textContent = `Rs. ${(price * 1.4).toFixed(2)}`; // 40% markup
   installmentEl.textContent = `Pay Rs. ${(price / 3).toFixed(2)} x 3 months`;
 }
-
-// Image Gallery
-function updateMainImage(src) {
-  document.getElementById("mainImage").src = src;
-}
-
-// Tab Switching
-document.querySelectorAll(".tab-btn").forEach((button) => {
-  button.addEventListener("click", () => {
-    document
-      .querySelectorAll(".tab-btn")
-      .forEach((btn) => btn.classList.remove("active"));
-    document
-      .querySelectorAll(".tab-content")
-      .forEach((content) => content.classList.remove("active"));
-
-    button.classList.add("active");
-    const tabId = button.getAttribute("data-tab");
-    document.getElementById(tabId).classList.add("active");
-  });
-});
-
-// Weight Selection
-document.querySelectorAll(".weight-btn").forEach((button) => {
-  button.addEventListener("click", () => {
-    document
-      .querySelectorAll(".weight-btn")
-      .forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-    updatePrice(button.textContent);
-  });
-});
 
 // Initialize modal
 const modal = document.getElementById("deliveryModal");
@@ -109,57 +80,63 @@ deliveryForm.addEventListener("submit", (e) => {
     fullName: document.getElementById("fullName").value,
     phoneNumber: document.getElementById("phoneNumber").value,
     address: document.getElementById("address").value,
-    city: document.getElementById("city").value,
-    district: document.getElementById("district").value,
-    notes: document.getElementById("notes").value,
+    city: document.getElementById("city")?.value || "",
+    district: document.getElementById("district")?.value || "",
+    notes: document.getElementById("notes")?.value || "",
   };
 
   const selectedWeight =
     document.querySelector(".weight-btn.active").textContent;
   const price = pricesByWeight[selectedWeight];
   const isCartAction = deliveryForm.dataset.action === "cart";
-
-  // Create product object
-  const product = {
-    name: "MaxMark Ceylon Chili Seeds - Red Hot Hybrid F1",
-    price: price,
-    weight: selectedWeight,
-    image: document.getElementById("mainImage").src,
-    quantity: 1,
-    delivery: formData,
-  };
-
-  // Add to cart
-  const existingProduct = cart.find(
-    (item) => item.name === product.name && item.weight === product.weight
-  );
-
-  if (existingProduct) {
-    existingProduct.quantity += 1;
-    existingProduct.delivery = formData;
-  } else {
-    cart.push(product);
-  }
-
-  // Update localStorage
-  updateCart();
+  const shipping = DELIVERY_FEE;
+  const total = price + shipping;
 
   // Format WhatsApp message
-  const message = `Hi! I would like to ${
-    isCartAction ? "add to cart" : "place an order"
-  }:%0A
------- PRODUCT DETAILS ------%0A
-Product: ${product.name}%0A
-Weight: ${product.weight}%0A
-Price: Rs. ${price.toFixed(2)}%0A%0A
------- DELIVERY DETAILS ------%0A
-Name: ${formData.fullName}%0A
-Phone: ${formData.phoneNumber}%0A
-Address: ${formData.address}%0A
-City: ${formData.city}%0A
-District: ${formData.district}%0A
-${formData.notes ? `Notes: ${formData.notes}%0A` : ""}%0A
-Please process my Cash on Delivery order.`;
+  let message = "🌶️ *New Order Request*%0A%0A";
+
+  message += "*Product Details*%0A";
+  message += "----------------%0A";
+  message += `Product: MaxMark Ceylon Chili Seeds - MICH HY 1%0A`;
+  message += `Weight: ${selectedWeight}%0A`;
+  message += `Price: Rs. ${price.toFixed(2)}%0A`;
+  message += `Delivery Fee: Rs. ${shipping.toFixed(2)}%0A`;
+  message += `*Total Amount: Rs. ${total.toFixed(2)}*%0A%0A`;
+
+  message += "*Delivery Details*%0A";
+  message += "----------------%0A";
+  message += `Name: ${formData.fullName}%0A`;
+  message += `Phone: ${formData.phoneNumber}%0A`;
+  message += `Address: ${formData.address}%0A`;
+  if (formData.city) message += `City: ${formData.city}%0A`;
+  if (formData.district) message += `District: ${formData.district}%0A`;
+  if (formData.notes) message += `Notes: ${formData.notes}%0A`;
+  message += "%0A*Payment Method:* Cash on Delivery%0A";
+
+  // Add to cart if necessary
+  if (isCartAction) {
+    const product = {
+      name: "MaxMark Ceylon Chili Seeds - MICH HY 1",
+      price: price,
+      weight: selectedWeight,
+      image: document.getElementById("mainImage").src,
+      quantity: 1,
+      delivery: formData,
+    };
+
+    const existingProduct = cart.find(
+      (item) => item.name === product.name && item.weight === product.weight
+    );
+
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+      existingProduct.delivery = formData;
+    } else {
+      cart.push(product);
+    }
+
+    updateCart();
+  }
 
   // Close modal and reset form
   modal.style.display = "none";
@@ -168,27 +145,22 @@ Please process my Cash on Delivery order.`;
   // Send WhatsApp message
   window.open(`https://wa.me/94763936648?text=${message}`, "_blank");
 
-  // Show confirmation based on action
-  if (isCartAction) {
-    const confirmMessage = `
-      Product added to cart successfully!
-      • Weight: ${selectedWeight}
-      • Price: Rs. ${price.toFixed(2)}
-      • Delivery to: ${formData.city}, ${formData.district}
-      
-      WhatsApp message has been sent with your details.
-      Check your cart to review or modify the order.
-    `;
-    alert(confirmMessage);
-  } else {
-    const confirmMessage = `
-      Order placed successfully!
-      • Weight: ${selectedWeight}
-      • Price: Rs. ${price.toFixed(2)}
-      • Delivery to: ${formData.city}, ${formData.district}
-      
-      Please check your WhatsApp for order confirmation and further instructions.
-    `;
-    alert(confirmMessage);
-  }
+  // Show confirmation
+  const confirmMessage = isCartAction
+    ? `Product added to cart successfully!\n• Weight: ${selectedWeight}\n• Price: Rs. ${price.toFixed(
+        2
+      )}\n• Delivery Fee: Rs. ${shipping.toFixed(
+        2
+      )}\n• Total: Rs. ${total.toFixed(
+        2
+      )}\n\nWhatsApp message has been sent with your details.`
+    : `Order placed successfully!\n• Weight: ${selectedWeight}\n• Price: Rs. ${price.toFixed(
+        2
+      )}\n• Delivery Fee: Rs. ${shipping.toFixed(
+        2
+      )}\n• Total: Rs. ${total.toFixed(
+        2
+      )}\n\nPlease check your WhatsApp for order confirmation.`;
+
+  alert(confirmMessage);
 });
